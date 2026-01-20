@@ -328,6 +328,23 @@ WHERE id_usuario = X;
 ---
 
 
+### Dimensionamento (AWS) — e-Cidade (modelo tradicional, 1 prefeitura)
+
+- **Pequeno porte (até ~50 usuários simultâneos)**:
+  - **EC2 (app)**: 2–4 vCPU / 8–16 GB RAM
+  - **Banco (ideal RDS Postgres)**: 2–4 vCPU / 8–16 GB RAM
+  - **Disco**: SSD gp3 (começar em 200–500 GB)
+
+- **Médio (~100–250 simultâneos)**:
+  - **EC2 (app)**: 4 vCPU / 16 GB RAM
+  - **RDS**: 4 vCPU / 16–32 GB RAM
+  - **Disco**: SSD gp3 com IOPS ajustável + backup/monitoramento
+
+- **Grande (250+ simultâneos)**:
+  - **Obrigatório**: separar app/banco
+  - **RDS**: maior
+  - **IOPS/CPU**: dimensionar conforme carga de relatórios/integrações
+
 
 
 **Última atualização:** 2026-01-18  
